@@ -1,0 +1,22 @@
+/* ========================
+   Variables y Modo Oscuro
+======================== */
+:root {
+    --color-bg: #FDFAF6;
+    --color-text: #000000;
+    --color-hover: #154D71;
+    --color-secondary: #E8CFC4;
+    --color-accent: #A3D9C9;
+    --color-title: #ffffff;
+    --color-detail: #BFAE9F;
+
+    --font-main: 'Segoe UI', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+
+    --transition-speed: 0.3s;
+}
