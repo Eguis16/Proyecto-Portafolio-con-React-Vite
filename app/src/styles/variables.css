@@ -2,21 +2,24 @@
    Variables y Modo Oscuro
 ======================== */
 :root {
-    --color-bg: #FDFAF6;
-    --color-text: #000000;
-    --color-hover: #154D71;
-    --color-secondary: #E8CFC4;
-    --color-accent: #A3D9C9;
-    --color-title: #ffffff;
-    --color-detail: #BFAE9F;
+  --color-bg: #fdfaf6;
+  --color-text: #000000;
+  --color-text-secondary: #ffffff;
+  --color-hover: #154d71;
+  --color-hover-secondary: #a27b5c;
+  --color-secondary: #e8cfc4;
+  --color-accent: #a3d9c9;
+  --color-title: #ffffff;
+  --color-title-secondary: #646cff;
+  --color-detail: #bfae9f;
 
-    --font-main: 'Segoe UI', sans-serif;
-    --font-size-base: 16px;
-    --line-height-base: 1.6;
+  --font-main: "Segoe UI", sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
 
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
 
-    --transition-speed: 0.3s;
+  --transition-speed: 0.3s;
 }
