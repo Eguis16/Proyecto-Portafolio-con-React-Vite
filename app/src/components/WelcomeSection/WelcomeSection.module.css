@@ -1,25 +1,62 @@
 .welcomeSection {
-  padding: 2rem;
+  position: relative;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  padding: 100px 20px;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  color: white;
+
+  font-family: "Inter", sans-serif;
+}
+
+.welcomeSection::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
+  animation: rotate 30s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .heading {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .description {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  color: #444;
+  position: relative;
+  z-index: 1;
 }
 
 .skills {
   text-align: left;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .skillsTitle {
@@ -36,6 +73,11 @@
 .skillsList li {
   margin-bottom: 0.5rem;
   font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.skillsList li:hover {
+  transform: translateX(5px);
 }
 
 .ctaButton {
@@ -46,4 +88,39 @@
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButton:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+  .welcomeSection {
+    padding: 60px 15px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .skillsTitle {
+    font-size: 1.1rem;
+  }
+
+  .skillsList li {
+    font-size: 0.95rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+  }
 }

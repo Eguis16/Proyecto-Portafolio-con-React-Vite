@@ -1,7 +1,19 @@
 import { motion } from "framer-motion";
 import styles from "./WelcomeSection.module.css";
+import { FaReact, FaPython, FaTools } from "react-icons/fa";
 
 function WelcomeSection() {
+  const skills = [
+    "🖥️ Desarrollo Web: React, Vite, Tailwind CSS, HTML, CSS, JavaScript",
+    "⚙️ Automatización y Scripting: PowerShell, Python",
+    "🧠 Frameworks y Librerías: Flask, Framer Motion, React Router",
+    "🛠️ Herramientas de despliegue: GitHub Pages, Netlify",
+    "🧩 Gestión de configuración: Neovim (Lua, Packer), módulos personalizados",
+    "🗂️ Administración de sistemas: MDT, ADK, WinPE, Sysinternals",
+    "📈 Optimización de procesos: diseño de flujos de trabajo, documentación técnica",
+    "📚 Aprendizaje autodidacta: mejora continua y dominio de nuevas tecnologías",
+  ];
+
   return (
     <motion.section
       className={styles.welcomeSection}
@@ -16,7 +28,7 @@ function WelcomeSection() {
         transition={{ delay: 0.3, duration: 0.5 }}
         className={styles.heading}
       >
-        Hola, soy Eguis Suárez
+        Hola, soy Eguis Suárez <FaReact /> <FaPython></FaPython> <FaTools />
       </motion.h1>
 
       <motion.p
@@ -38,37 +50,16 @@ function WelcomeSection() {
       >
         <h2 className={styles.skillsTitle}>🛠️ Habilidades</h2>
         <ul className={styles.skillsList}>
-          <li>
-            🖥️ <strong>Desarrollo Web:</strong> React, Vite, Tailwind CSS, HTML,
-            CSS, JavaScript
-          </li>
-          <li>
-            ⚙️ <strong>Automatización y Scripting:</strong> PowerShell, Python
-          </li>
-          <li>
-            🧠 <strong>Frameworks y Librerías:</strong> Flask, Framer Motion,
-            React Router
-          </li>
-          <li>
-            🛠️ <strong>Herramientas de despliegue:</strong> GitHub Pages,
-            Netlify
-          </li>
-          <li>
-            🧩 <strong>Gestión de configuración:</strong> Neovim (Lua, Packer),
-            módulos personalizados
-          </li>
-          <li>
-            🗂️ <strong>Administración de sistemas:</strong> MDT, ADK, WinPE,
-            Sysinternals
-          </li>
-          <li>
-            📈 <strong>Optimización de procesos:</strong> diseño de flujos de
-            trabajo, documentación técnica
-          </li>
-          <li>
-            📚 <strong>Aprendizaje autodidacta:</strong> mejora continua y
-            dominio de nuevas tecnologías
-          </li>
+          {skills.map((skill, index) => (
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
+            >
+              {skill}
+            </motion.li>
+          ))}
         </ul>
       </motion.div>
 
@@ -77,6 +68,12 @@ function WelcomeSection() {
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300 }}
         className={styles.ctaButton}
+        onClick={() => {
+          const contactSection = document.getElementById("contact");
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
       >
         Contáctame
       </motion.button>
