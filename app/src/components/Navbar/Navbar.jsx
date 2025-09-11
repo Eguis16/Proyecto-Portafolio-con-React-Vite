@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styles from "./Navbar.module.css";
+import { path } from "framer-motion/client";
 
 const navbarVariants = {
   hidden: { opacity: 0, y: -100 },
@@ -21,6 +22,12 @@ const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
+
+const navItems = [
+  { name: "Sobre Mi", path: "/Sobre Mi" },
+  { name: "Proyectos", path: "/proyectos" },
+  { name: "Contacto", path: "/contacto" },
+];
 
 function Navbar() {
   return (
@@ -46,23 +53,15 @@ function Navbar() {
         </motion.div>
 
         <motion.ul className={styles["main-nav"]}>
-          {["Sobre Mi", "Proyectos", "Contacto"].map((item, index) => (
+          {navItems.map(({ name, path }, index) => (
             <motion.li
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Link
-                to={
-                  item === "Sobre Mi"
-                    ? "/Sobre Mi"
-                    : item === "Proyectos"
-                    ? "/Proyectos"
-                    : "/Contacto"
-                }
-              >
-                {item}
+              <Link to={path} className={styles.link}>
+                {name}
               </Link>
             </motion.li>
           ))}

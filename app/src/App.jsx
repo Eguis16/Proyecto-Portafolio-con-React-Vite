@@ -7,7 +7,7 @@ import {
   CoverParticles,
 } from "./components";
 import "./styles/App.css";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);

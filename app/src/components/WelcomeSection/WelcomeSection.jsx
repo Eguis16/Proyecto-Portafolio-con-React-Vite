@@ -14,6 +14,13 @@ function WelcomeSection() {
     "📚 Aprendizaje autodidacta: mejora continua y dominio de nuevas tecnologías",
   ];
 
+  // Función para animar los elementos de la lista de habilidades
+  const getSkillAnimation = (index) => ({
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { delay: 0.9 + index * 0.15, duration: 0.5 },
+  });
+
   return (
     <motion.section
       className={styles.welcomeSection}
@@ -28,7 +35,7 @@ function WelcomeSection() {
         transition={{ delay: 0.3, duration: 0.5 }}
         className={styles.heading}
       >
-        Hola, soy Eguis Suárez <FaReact /> <FaPython></FaPython> <FaTools />
+        Hola, soy Eguis Suárez <FaReact /> <FaPython /> <FaTools />
       </motion.h1>
 
       <motion.p
@@ -51,12 +58,7 @@ function WelcomeSection() {
         <h2 className={styles.skillsTitle}>🛠️ Habilidades</h2>
         <ul className={styles.skillsList}>
           {skills.map((skill, index) => (
-            <motion.li
-              key={index}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
-            >
+            <motion.li key={index} {...getSkillAnimation(index)}>
               {skill}
             </motion.li>
           ))}

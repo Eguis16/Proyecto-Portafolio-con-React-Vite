@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: var(--color-bg-1);
+  background: linear-gradient(to right, #6a1e55, #ffffff);
   position: relative;
   padding: 100px 20px;
   z-index: 1;
