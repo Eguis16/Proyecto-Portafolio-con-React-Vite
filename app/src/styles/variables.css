@@ -2,7 +2,7 @@
    Variables y Modo Oscuro
 ======================== */
 :root {
-  --color-bg: #fdfaf6;
+  --color-bg: rgba(0, 0, 0, 0.8);
   --color-bg-1: #333;
   --color-text: #000000;
   --color-text-secondary: #ffffff;

@@ -1,32 +1,33 @@
-import { useState } from "react";
-import {
-  Navbar,
-  WelcomeSection,
-  Projects,
-  Contact,
-  CoverParticles,
-} from "./components";
+import { useState, useEffect } from "react";
+import React, { use } from "react";
+import Navbar from "./components/Navbar/Navbar.jsx";
+import WelcomeSection from "./components/WelcomeSection/WelcomeSection.jsx";
+import ScheduleSection from "./components/ScheduleSection/schedulesection.jsx";
+import Footer from "./components/Footer/footer.jsx";
+
 import "./styles/App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [showSchedule, setShowSchedule] = React.useState(false);
+  useEffect(() => {
+    if (showSchedule) {
+      setTimeout(() => {
+        const scheduleSection = document.getElementById("horarios");
+        scheduleSection?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [showSchedule]);
 
   return (
-    <main className="relative">
-      {/* Fondo animado */}
-      <CoverParticles />
+    <div className="app">
+      <Navbar setShowSchedule={setShowSchedule} showSchedule={showSchedule} />
+      <main className="content">
+        <WelcomeSection />
+        <ScheduleSection />
+      </main>
 
-      {/* Navbar siempre visible */}
-      <Navbar />
-
-      {/* Rutas de contenido */}
-      <Routes>
-        <Route path="/sobre mi" element={<WelcomeSection />} />
-        <Route path="/proyectos" element={<Projects />} />
-        <Route path="/contacto" element={<Contact />} />
-      </Routes>
-    </main>
+      <Footer />
+    </div>
   );
 }
 

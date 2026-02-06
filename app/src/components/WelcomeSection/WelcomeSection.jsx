@@ -1,85 +1,70 @@
-import { motion } from "framer-motion";
+import Gallery from "./Gallery.jsx";
 import styles from "./WelcomeSection.module.css";
-import { FaReact, FaPython, FaTools } from "react-icons/fa";
+import ProgramCard from "./ProgramCard.jsx";
+import img1 from "../../assets/img/bjj_1.jpg";
+import img2 from "../../assets/img/bjj_4.jpg";
+import img3 from "../../assets/img/bjj_3.jpg";
+
+const programs = [
+  {
+    title: "Fundamentos",
+    image: img1,
+    alt: "Entrenamiento fundamentos BJJ",
+    description:
+      "Clase ideal para quienes comienzan o desean reforzar su base. Técnicas esenciales y principios de defensa.",
+  },
+  {
+    title: "GI & No-Gi",
+    image: img2,
+    alt: "Entrenamientos BJJ con Gi y No Gi",
+    description:
+      "Entrenamientos tanto con kimono como sin kimono, donde principiantes, intermedios y avanzados entrenan juntos en un ambiente colaborativo.",
+  },
+  {
+    title: "Kids y Juveniles",
+    image: img3,
+    alt: "Clases de jiu jitsu para niños y juveniles",
+    description:
+      "Clases enfocadas en desarrollar disciplina, coordinación y confianza, en un entorno seguro y controlado.",
+  },
+];
 
 function WelcomeSection() {
-  const skills = [
-    "🖥️ Desarrollo Web: React, Vite, Tailwind CSS, HTML, CSS, JavaScript",
-    "⚙️ Automatización y Scripting: PowerShell, Python",
-    "🧠 Frameworks y Librerías: Flask, Framer Motion, React Router",
-    "🛠️ Herramientas de despliegue: GitHub Pages, Netlify",
-    "🧩 Gestión de configuración: Neovim (Lua, Packer), módulos personalizados",
-    "🗂️ Administración de sistemas: MDT, ADK, WinPE, Sysinternals",
-    "📈 Optimización de procesos: diseño de flujos de trabajo, documentación técnica",
-    "📚 Aprendizaje autodidacta: mejora continua y dominio de nuevas tecnologías",
-  ];
-
-  // Función para animar los elementos de la lista de habilidades
-  const getSkillAnimation = (index) => ({
-    initial: { opacity: 0, x: -20 },
-    animate: { opacity: 1, x: 0 },
-    transition: { delay: 0.9 + index * 0.15, duration: 0.5 },
-  });
-
   return (
-    <motion.section
-      className={styles.welcomeSection}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      exit={{ opacity: 0, y: 50 }}
-    >
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className={styles.heading}
-      >
-        Hola, soy Eguis Suárez <FaReact /> <FaPython /> <FaTools />
-      </motion.h1>
+    <section className={styles.section}>
+      {/* HEADER */}
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-        className={styles.description}
-      >
-        Bienvenido a mi portafolio personal. Soy desarrollador con pasión por
-        crear soluciones eficientes y elegantes usando tecnologías modernas como
-        React, Flask y Python.
-      </motion.p>
+      <header className={styles.header}>
+        <div className={styles.textBlock}>
+          <h2 className={styles.title}>
+            Academia <br /> Darkside BJJ
+          </h2>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.5 }}
-        className={styles.skills}
-      >
-        <h2 className={styles.skillsTitle}>🛠️ Habilidades</h2>
-        <ul className={styles.skillsList}>
-          {skills.map((skill, index) => (
-            <motion.li key={index} {...getSkillAnimation(index)}>
-              {skill}
-            </motion.li>
-          ))}
-        </ul>
-      </motion.div>
+          <p className={styles.subtitle}>
+            Nuestro sistema de entrenamiento combina acondicionamiento físico
+            adaptado al alumno con una progresión técnica estructurada en
+            niveles básico, intermedio y avanzado.
+            <br />
+            <br />
+            A mediano plazo buscamos dominar el combate en el suelo, aplicar
+            sumisiones con eficiencia y desarrollar un juego técnico sólido.
+            <br />
+            <br />A largo plazo formamos practicantes completos: avance de
+            cinturones, experiencia competitiva, mentalidad fuerte y valores
+            como disciplina, respeto y trabajo en equipo.
+          </p>
+        </div>
 
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 300 }}
-        className={styles.ctaButton}
-        onClick={() => {
-          const contactSection = document.getElementById("contact");
-          if (contactSection) {
-            contactSection.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-      >
-        Contáctame
-      </motion.button>
-    </motion.section>
+        <Gallery />
+      </header>
+
+      {/* CARDS */}
+      <div className={styles.grid}>
+        {programs.map((program, index) => (
+          <ProgramCard key={index} {...program} />
+        ))}
+      </div>
+    </section>
   );
 }
 
