@@ -36,9 +36,7 @@ function WelcomeSection() {
 
       <header className={styles.header}>
         <div className={styles.textBlock}>
-          <h2 className={styles.title}>
-            Academia <br /> Darkside BJJ
-          </h2>
+          <h2 className={styles.title}>Objetivo</h2>
 
           <p className={styles.subtitle}>
             Nuestro sistema de entrenamiento combina acondicionamiento físico

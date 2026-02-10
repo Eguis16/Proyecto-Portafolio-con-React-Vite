@@ -1,9 +1,16 @@
 .card {
-  background: #f7f7f7;
+  background: #1A1D23;
   border-radius: 24px;
   padding: 1.2rem;
+  border: 1px solid #2C3140;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: ALL 0.1s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: #c9a14a;
+  box-shadow: 0 0 20px rgba(201, 161, 74, 0.015);
 }
 
 .imageWrapper {
@@ -21,13 +28,13 @@
 }
 
 .card h3 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
 }
 
 .card p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.6;
-  color: #555;
+  color: #EDEDED;
 }

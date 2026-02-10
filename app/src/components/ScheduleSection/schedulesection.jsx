@@ -58,19 +58,6 @@ function ScheduleSection() {
           </ul>
         </motion.div>
       </div>
-
-      {/* CTA */}
-      <motion.a
-        href="https://wa.me/569XXXXXXXX"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.cta}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <FaWhatsapp />
-        Agenda tu clase de prueba
-      </motion.a>
     </section>
   );
 }

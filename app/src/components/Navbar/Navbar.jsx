@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { FaBold } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-
 import styles from "./Navbar.module.css";
+import logo from "../../assets/img/darkside-logo-removebg-preview.png";
+import { FaWhatsapp } from "react-icons/fa";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -15,62 +17,66 @@ function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         {/* LOGO */}
-        <motion.div className={styles.logo}>
-          <motion.span
-            className={styles.logoText}
-            whileHover={{ scale: 1.1 }}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+        <motion.div
+          className={styles.logo}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* CTA */}
+          <motion.a
+            href="https://wa.me/56995841577?text=Hola!%20Quiero%20agendar%20una%20clase%20de%20prueba%20en%20Darkside%20BJJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.cta}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Darkside-bjj
-          </motion.span>
+            <FaWhatsapp />
+            Agenda tu clase de prueba
+          </motion.a>
         </motion.div>
 
         {/* DESKTOP LINKS */}
         <motion.div className={styles.links}>
           <motion.a
-            href="#horarios"
             className={styles.link}
-            initial={{ opacity: 0, y: -20 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            onClick={() => {
+            onClick={() =>
               document
                 .getElementById("horarios")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Horarios
           </motion.a>
 
           <motion.a
-            href="#instructores"
             className={styles.link}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            onClick={() =>
+              document
+                .getElementById("instructores")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Instructores
           </motion.a>
-          <motion.button
-            className={styles.button}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+
+          <motion.a
+            href="dark"
+            className={styles.darkLink}
+            whileHover={{ scale: 1.08 }}
           >
-            ÚNETE
-          </motion.button>
+            <FaBold />
+            DARK
+          </motion.a>
         </motion.div>
 
         {/* HAMBURGER */}
-        <motion.button
+        <button
           className={styles.menuButton}
           onClick={() => setOpen(!open)}
           aria-label="Abrir menú"
@@ -78,7 +84,7 @@ function Navbar() {
           <span />
           <span />
           <span />
-        </motion.button>
+        </button>
       </motion.nav>
 
       {/* MOBILE MENU */}

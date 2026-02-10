@@ -7,7 +7,7 @@
     linear-gradient(180deg, #0a0a0a, #000);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1rem 0.2rem;
-  color: #b5b5b5;
+  color: #fbbf24;
 }
 
 .container {
@@ -32,7 +32,7 @@
 
 /* ICON STYLE */
 .socials a {
-  color: #b5b5b5;
+  color: #fbbf24;
   font-size: 1.7rem;
   position: relative;
   transition: color 0.25s ease, transform 0.25s ease;
@@ -74,6 +74,35 @@
   margin-right: -20rem;
   text-transform: uppercase;
   opacity: 0.8;
+}
+
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  margin: 1.2rem;
+}
+
+.mapLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mapLink:hover {
+  color: #facc15;
+  cursor: pointer;
+}
+.location svg {
+  color: #facc15;
 }
 
 /* MOBILE */

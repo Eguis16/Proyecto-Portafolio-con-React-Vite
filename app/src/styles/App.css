@@ -3,20 +3,33 @@ body,
 #root {
   height: 100%;
   margin: 0;
-  background-color: #222831;
+  background-color: #0F1115;
 }
 
 .app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background-color: #0a0a0a;
+  background-image: url("../assets/img/darkside-logo-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 700px;
+  background-attachment: fixed;
+  position: relative;
 }
 
-.content {
+.content, nav, footer {
+  position: relative;
+  z-index: 1;
   padding-top: 90px;
   flex: 1;
 }
 
+.app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
 
 body::before {
   content: "";
@@ -25,7 +38,6 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  
   z-index: -1;
 }
 
