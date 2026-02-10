@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { FaBold } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Navbar.module.css";
-import logo from "../../assets/img/darkside-logo-removebg-preview.png";
 import { FaWhatsapp } from "react-icons/fa";
 
 function Navbar() {
@@ -66,12 +64,16 @@ function Navbar() {
           </motion.a>
 
           <motion.a
-            href="dark"
             className={styles.darkLink}
-            whileHover={{ scale: 1.08 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() =>
+              document
+                .getElementById("oss")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
-            <FaBold />
-            DARK
+            OSS
           </motion.a>
         </motion.div>
 

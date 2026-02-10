@@ -25,13 +25,13 @@
   gap: 0.4rem;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #aaa;
+  color: #f5c400;
   text-transform: uppercase;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .darkLink:hover {
-  color: #f5c400;
+  color: #fff;
   cursor: pointer;
   text-shadow: 0 0 10px rgba(245, 196, 0, 0.6);
 }
